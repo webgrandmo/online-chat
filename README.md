@@ -1,2 +1,2 @@
 # online-chat
-Simple online chat built with Express.js, JavaScriptES6 and Websockets
+Simple online chat built with Express.js, JavaScript ES6 and Websockets
