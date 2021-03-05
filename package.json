@@ -1,0 +1,27 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "Real time chat app. Based and inspired by Brad Traversy Tutorial",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webgrandmo/online-chat.git"
+  },
+  "author": "Andriy Trofimov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webgrandmo/online-chat/issues"
+  },
+  "homepage": "https://github.com/webgrandmo/online-chat#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io": "^3.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
