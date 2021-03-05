@@ -4,7 +4,8 @@
   "description": "Real time chat app. Based and inspired by Brad Traversy Tutorial",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "repository": {
     "type": "git",
