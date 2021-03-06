@@ -24,6 +24,10 @@ io.on('connection', (socket) => {
 	socket.on('disconnect', () => {
 		io.emit('message', 'A user left the chat');
 	});
+
+	socket.on('chatMessage', (msg) => {
+		io.emit('message', msg);
+	});
 });
 server.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`);
