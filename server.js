@@ -7,7 +7,8 @@ const app = express();
 
 const server = http.createServer(app);
 const io = socketio(server);
-
+const formatedMsg = require('./utils/messages');
+const chatBot = 'Ultimate Chat';
 const PORT = 3000 || process.env.PORT;
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -15,18 +16,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 io.on('connection', (socket) => {
 	console.log('New WS connection');
 
-	socket.emit('message', 'Welcome to the chat!');
+	socket.emit('message', formatedMsg(chatBot, 'Welcome to the chat!'));
 
 	// Broadcast them user connects
-	socket.broadcast.emit('message', 'A user joined the chat');
+	socket.broadcast.emit(
+		'message',
+		formatedMsg(chatBot, 'A user joined the chat')
+	);
 
 	// Runs then user disconnects
 	socket.on('disconnect', () => {
-		io.emit('message', 'A user left the chat');
+		io.emit('message', formatedMsg(chatBot, 'A user left the chat'));
 	});
 
 	socket.on('chatMessage', (msg) => {
-		io.emit('message', msg);
+		io.emit('message', formatedMsg('USER', msg));
 	});
 });
 server.listen(PORT, () => {
