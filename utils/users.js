@@ -3,7 +3,6 @@ const users = [];
 function userJoin(id, username, room) {
 	const user = { id, username, room };
 	users.push(user);
-	console.log(users);
 	return user;
 }
 
@@ -13,7 +12,23 @@ function getCurrentUser(id) {
 	return users.find((user) => user.id === id);
 }
 
+// User leaves the room
+function userLeave(id) {
+	const index = users.findIndex((user) => user.id === id);
+
+	if (index) {
+		return users.splice(index, 1)[0];
+	}
+}
+
+// Get room users
+function getUserRoom(room) {
+	return users.filter((user) => user.room === room);
+}
+
 module.exports = {
 	userJoin,
+	userLeave,
 	getCurrentUser,
+	getUserRoom,
 };
